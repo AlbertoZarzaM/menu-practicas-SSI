@@ -1,0 +1,1 @@
+Para ejecutar el programa sin modificación primero debe de compilarlo mediante make, despues solo ejecute ./Vigenere
