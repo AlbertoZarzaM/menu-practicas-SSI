@@ -5,6 +5,19 @@
 
 
 void pr10() {
+   
+    std::cout << "¿Qué quieres hacer?" << std::endl;
+    std::cout << "1. Cifrar" << std::endl;
+    std::cout << "2. Firmar" << std::endl;
+
+  std::string original_text;
+  int practica;
+  std::getline(std::cin, original_text);
+  
+  practica = std::stoi(original_text);
+
+
+    if (practica == 1){
    std::string original_text;
     std::cout << "Introduce el texto original: ";
     std::getline(std::cin, original_text);
@@ -79,31 +92,39 @@ void pr10() {
     }
 
     std::cout << std::endl;
+    }
+    else if (practica == 2){
 
-    std::cout << "Verificar: " << std::endl;
-    std::cout << "Texto firmado recibido por B: " << std::endl;
+        std::cout << "Verificar: " << std::endl;
+        std::cout << "Texto firmado recibido por B: " << std::endl;
 
-    long long int signed_text;
+        long long int signed_text;
 
-    std::cin >> signed_text;
+        std::cin >> signed_text;
 
-    std::cout << "Introduce el valor de e: ";
-    long long int eaux;
-    std::cin >> eaux;
-    std::cout << std::endl;
-    std::cout << "Introduce el valor de n: ";
-    long long int naux;
-    std::cin >> naux;
-    std::cout << std::endl;
-    
-    long long int signed_text_aux = encrypt(signed_text, eaux, naux);
+        std::cout << "Introduce el valor de e: ";
+        long long int eaux;
+        std::cin >> eaux;
+        std::cout << std::endl;
+        std::cout << "Introduce el valor de n: ";
+        long long int naux;
+        std::cin >> naux;
+        std::cout << std::endl;
+        
+        long long int signed_text_aux = encrypt(signed_text, eaux, naux);
 
-    std::cout << "Se calcula la potencia: " << signed_text_aux << std::endl;
+        std::cout << "Se calcula la potencia: " << signed_text_aux << std::endl;
 
-    std::string decode1 = std::to_string(signed_text_aux);
-    int jaux = std::ceil(std::log(naux+1)/std::log(26));
+        std::string decode1 = std::to_string(signed_text_aux);
+        int jaux = std::ceil(std::log(naux+1)/std::log(26));
 
-    std::cout << "Se decodifica obteniendo el texto original: " << decode(decode1, jaux-1) << std::endl;
+        std::cout << "Se decodifica obteniendo el texto original: " << decode(decode1, jaux-1) << std::endl;
+    }
+
+    else {
+        std::cout << "Opción no válida" << std::endl;
+    }
+
 
 }
 
